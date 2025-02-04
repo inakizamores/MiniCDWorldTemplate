@@ -10,7 +10,7 @@ Esta página web muestra una vista previa de un archivo PDF y proporciona botone
 
 ## Cómo usar
 
-1. Reemplaza `pdf/your-pdf-file.pdf` con tu propio archivo PDF.
+1. Reemplaza `pdf/MCDK_BLANK_TEMPLATE.pdf` con tu propio archivo PDF.
 2. Abre `index.html` en tu navegador.
 
 ## Tecnologías utilizadas

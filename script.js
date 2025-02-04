@@ -1,4 +1,4 @@
-const pdfUrl = 'pdf/your-pdf-file.pdf';
+const pdfUrl = 'pdf/MCDK_BLANK_TEMPLATE.pdf';
 const canvas = document.getElementById('pdfCanvas');
 const ctx = canvas.getContext('2d');
 const downloadBtn = document.getElementById('downloadBtn');
@@ -31,7 +31,7 @@ pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc_) {
 downloadBtn.addEventListener('click', () => {
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'documento.pdf';
+    link.download = 'MCDK_BLANK_TEMPLATE.pdf';
     link.click();
 });
 
