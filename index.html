@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de PDF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="pdf-preview">
+            <a href="pdf/your-pdf-file.pdf" download="documento.pdf">
+                <canvas id="pdfCanvas"></canvas>
+            </a>
+        </div>
+        <div class="buttons">
+            <button id="downloadBtn">Descargar PDF</button>
+            <button id="printBtn">Imprimir PDF</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
