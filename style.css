@@ -88,6 +88,10 @@ body {
     transition: left 0.5s;
 }
 
+#downloadBtn:hover::before {
+    left: 100%;
+}
+
 /* Keyframe animations */
 @keyframes fadeInDown {
     from {
@@ -109,8 +113,4 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-#downloadBtn:hover::before {
-    left: 100%;
 }
