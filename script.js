@@ -2,7 +2,6 @@ const pdfUrl = 'pdf/MCDK_BLANK_TEMPLATE.pdf';
 const canvas = document.getElementById('pdfCanvas');
 const ctx = canvas.getContext('2d');
 const downloadBtn = document.getElementById('downloadBtn');
-const printBtn = document.getElementById('printBtn');
 
 let pdfDoc = null;
 
@@ -33,24 +32,4 @@ downloadBtn.addEventListener('click', () => {
     link.href = pdfUrl;
     link.download = 'MCDK_BLANK_TEMPLATE.pdf';
     link.click();
-});
-
-// Print button (updated for direct PDF printing)
-printBtn.addEventListener('click', () => {
-    pdfDoc.getData().then(data => {
-        const blob = new Blob([data], { type: 'application/pdf' });
-        const blobUrl = URL.createObjectURL(blob);
-
-        // Create a new window
-        const printWindow = window.open(blobUrl, '_blank');
-
-        // Check if the window was opened successfully
-        if (printWindow) {
-            printWindow.onload = () => {
-                printWindow.print();
-            };
-        } else {
-            console.error('Failed to open print window. Please check your browser settings.');
-        }
-    });
 });
