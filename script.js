@@ -37,27 +37,20 @@ downloadBtn.addEventListener('click', () => {
 
 // Print button (updated for direct PDF printing)
 printBtn.addEventListener('click', () => {
-    // Get the PDF data as a Blob
     pdfDoc.getData().then(data => {
         const blob = new Blob([data], { type: 'application/pdf' });
         const blobUrl = URL.createObjectURL(blob);
 
-        // Create an invisible iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.visibility = 'hidden';
-        iframe.src = blobUrl;
+        // Create a new window
+        const printWindow = window.open(blobUrl, '_blank');
 
-        // Append iframe to the body
-        document.body.appendChild(iframe);
-
-        // Print the iframe content
-        iframe.onload = () => {
-            setTimeout(() => {
-                iframe.focus();
-                iframe.contentWindow.print();
-                // Optional: Remove the iframe after printing
-                // document.body.removeChild(iframe);
-            }, 100); // Small delay to ensure content is loaded
-        };
+        // Check if the window was opened successfully
+        if (printWindow) {
+            printWindow.onload = () => {
+                printWindow.print();
+            };
+        } else {
+            console.error('Failed to open print window. Please check your browser settings.');
+        }
     });
 });
