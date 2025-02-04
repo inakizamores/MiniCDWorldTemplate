@@ -9,15 +9,14 @@
 <body>
     <div class="container">
         <div class="download-section">
-            <button id="downloadBtn">Haz Click Aquí Para Descargar el PDF</button>
-        </div>
-        <div class="pdf-preview">
-            <a href="pdf/MCDK_BLANK_TEMPLATE.pdf" download="MCDK_BLANK_TEMPLATE.pdf">
-                <canvas id="pdfCanvas"></canvas>
+            <a id="downloadLink" href="pdf/MCDK_BLANK_TEMPLATE.pdf" download="MCDK_BLANK_TEMPLATE.pdf">
+                <button id="downloadBtn">Haz Click Aquí Para Descargar el PDF</button>
             </a>
         </div>
+        <div class="pdf-preview">
+            <iframe id="pdfIframe" src="pdf/MCDK_BLANK_TEMPLATE.pdf" width="100%" height="600px"></iframe>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
