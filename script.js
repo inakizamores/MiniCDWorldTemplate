@@ -35,7 +35,29 @@ downloadBtn.addEventListener('click', () => {
     link.click();
 });
 
-// Print button
+// Print button (updated for direct PDF printing)
 printBtn.addEventListener('click', () => {
-    window.print();
+    // Get the PDF data as a Blob
+    pdfDoc.getData().then(data => {
+        const blob = new Blob([data], { type: 'application/pdf' });
+        const blobUrl = URL.createObjectURL(blob);
+
+        // Create an invisible iframe
+        const iframe = document.createElement('iframe');
+        iframe.style.visibility = 'hidden';
+        iframe.src = blobUrl;
+
+        // Append iframe to the body
+        document.body.appendChild(iframe);
+
+        // Print the iframe content
+        iframe.onload = () => {
+            setTimeout(() => {
+                iframe.focus();
+                iframe.contentWindow.print();
+                // Optional: Remove the iframe after printing
+                // document.body.removeChild(iframe);
+            }, 100); // Small delay to ensure content is loaded
+        };
+    });
 });
