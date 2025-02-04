@@ -10,32 +10,48 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column; /* Changed to column for vertical layout */
-    width: 80%;
-    max-width: 1000px;
+    flex-direction: column;
+    width: 95%;  /* Use most of the viewport width */
+    max-width: 1200px; /* Limit maximum width on very large screens */
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    padding: 20px;
+    border-radius: 10px; /* Slightly more rounded corners */
+    padding: 30px; /* Increased padding */
+    transition: all 0.3s ease; /* Smooth transition for width changes */
+}
+
+/* Media query for desktop screens */
+@media (min-width: 768px) {
+    .container {
+        width: 70%; /* Adjust width for desktop */
+    }
 }
 
 .download-section {
     display: flex;
-    justify-content: center; /* Center the button horizontally */
-    margin-bottom: 20px; /* Add space between button and PDF preview */
+    justify-content: center;
+    margin-bottom: 30px; /* Increased margin */
+    animation: fadeInDown 1s ease; /* Fade-in animation */
 }
 
 .pdf-preview {
     flex: 1;
     text-align: center;
+    opacity: 0; /* Initially hidden for animation */
+    animation: fadeInUp 1s ease forwards 0.5s; /* Fade-in animation with delay */
 }
 
 .pdf-preview canvas {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px; /* Increased max-width */
     height: auto;
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth scaling transition */
+}
+
+.pdf-preview canvas:hover {
+    transform: scale(1.05); /* Slightly increase size on hover */
 }
 
 #downloadBtn {
@@ -70,6 +86,29 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
     transition: left 0.5s;
+}
+
+/* Keyframe animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #downloadBtn:hover::before {
