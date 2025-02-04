@@ -1,79 +1,80 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More modern font */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0; /* Updated background color */
     margin: 0;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    width: 95%;  /* Use most of the viewport width */
-    max-width: 1200px; /* Limit maximum width on very large screens */
+    width: 95%;
+    max-width: 1100px; /* Reduced max-width */
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10px; /* Slightly more rounded corners */
-    padding: 30px; /* Increased padding */
-    transition: all 0.3s ease; /* Smooth transition for width changes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    border-radius: 15px; /* More rounded corners */
+    padding: 40px; /* Increased padding */
+    transition: all 0.4s ease; /* Smoother transition for width changes */
 }
 
 /* Media query for desktop screens */
-@media (min-width: 768px) {
+@media (min-width: 868px) {
     .container {
-        width: 70%; /* Adjust width for desktop */
+        width: 85%; /* Adjusted width for desktop */
     }
 }
 
 .download-section {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px; /* Increased margin */
-    animation: fadeInDown 1s ease; /* Fade-in animation */
+    margin-bottom: 40px; /* Increased margin */
+    animation: fadeInDown 1.2s ease; /* Slower fade-in animation */
 }
 
 .pdf-preview {
     flex: 1;
     text-align: center;
-    opacity: 0; /* Initially hidden for animation */
-    animation: fadeInUp 1s ease forwards 0.5s; /* Fade-in animation with delay */
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards 0.6s; /* Slower fade-in animation with delay */
 }
 
 .pdf-preview canvas {
     width: 100%;
-    max-width: 600px; /* Increased max-width */
+    max-width: 700px; /* Increased max-width */
     height: auto;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease; /* Smooth scaling transition */
+    border: 2px solid #9e9e9e; /* More pronounced border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
 }
 
 .pdf-preview canvas:hover {
-    transform: scale(1.05); /* Slightly increase size on hover */
+    transform: scale(1.03); /* Slightly reduced scaling */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
 }
 
 #downloadBtn {
-    padding: 15px 30px;
-    background-color: #007bff; /* Blue color */
+    padding: 18px 36px; /* Increased padding */
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 10px; /* More rounded corners */
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px; /* Increased font size */
     font-weight: bold;
     text-transform: uppercase;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-    position: relative; /* For the animation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease, transform 0.2s ease; /* Added transform transition */
+    position: relative;
     overflow: hidden;
 }
 
 #downloadBtn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Larger shadow on hover */
-    transform: translateY(-2px); /* Slightly raise the button on hover */
+    background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05); /* Added scaling on hover */
 }
 
 /* Animation for the button */
@@ -96,7 +97,7 @@ body {
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-30px); /* Increased translation */
     }
     to {
         opacity: 1;
@@ -107,7 +108,7 @@ body {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px); /* Increased translation */
     }
     to {
         opacity: 1;
